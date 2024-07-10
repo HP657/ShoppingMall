@@ -1,6 +1,18 @@
-import styles from './Content.module.css'
-const Content = () => {
-    return <div className={styles.content}>컨텐츠</div>
-}
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import styles from './Content.module.css';
+import ProductList from '../Product/ProductList';
+import ProductDetail from '../Product/ProductDetail';
 
-export default Content
+const Content: React.FC = () => {
+  return (
+    <div className={styles.content}>
+      <Routes>
+        <Route path="/" element={<ProductList />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+      </Routes>
+    </div>
+  );
+};
+
+export default Content;
