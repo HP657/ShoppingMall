@@ -1,16 +1,20 @@
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Content from './Content/Content';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <>
-      <Header />
-      <Content />
-      <Footer />
-    </>
+    <Router>
+      <>
+        <Header />
+        <Content />
+        <Footer />
+      </>
+    </Router>
   );
-}
+};
 
 export default App;
