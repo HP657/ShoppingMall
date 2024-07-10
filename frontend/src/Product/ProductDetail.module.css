@@ -1,0 +1,20 @@
+.productDetail {
+  padding: 20px;
+}
+
+.productDetail img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.backLink {
+  display: block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
