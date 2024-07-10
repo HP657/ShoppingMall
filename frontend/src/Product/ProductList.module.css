@@ -1,0 +1,14 @@
+.productList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.productItem {
+  margin: 10px;
+  flex: 1 0 200px;
+}
+
+.productItem:last-child {
+  margin-bottom: 20px;
+}
