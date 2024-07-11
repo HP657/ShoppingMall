@@ -1,6 +1,31 @@
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
   background-color: #333;
   color: white;
-  text-align: center;
+}
+
+.header_logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.button_container {
+  display: flex;
+}
+
+button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  background-color: white;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #ddd;
 }
