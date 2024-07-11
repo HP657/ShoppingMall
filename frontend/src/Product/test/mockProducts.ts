@@ -118,6 +118,27 @@ const mockProducts = [
       price: 170000, 
       description: "상품 설명 17" 
     },
+    { 
+      id: 17, 
+      name: "Product 17", 
+      image: "https://via.placeholder.com/150", 
+      price: 170000, 
+      description: "상품 설명 17" 
+    },
+    { 
+      id: 17, 
+      name: "Product 17", 
+      image: "https://via.placeholder.com/150", 
+      price: 170000, 
+      description: "상품 설명 17" 
+    },
+    { 
+      id: 17, 
+      name: "Product 17", 
+      image: "https://via.placeholder.com/150", 
+      price: 170000, 
+      description: "상품 설명 17" 
+    },
   ];
   
   export default mockProducts;
