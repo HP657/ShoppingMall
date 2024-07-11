@@ -1,12 +1,11 @@
 .productList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 25px;
 }
 
 .productItem {
-  margin: 10px;
-  flex: 1 0 200px;
+  box-sizing: border-box;
 }
 
 .productItem:last-child {

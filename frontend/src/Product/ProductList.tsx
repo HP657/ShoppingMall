@@ -32,14 +32,9 @@ const ProductList: React.FC = () => {
 
   const fetchProducts = async (page: number) => {
     setLoading(true);
-    try {
-      // 페이지당 5개 항목을 가져온다고 가정합니다.
-      const start = (page - 1) * 5;
-      const newProducts = mockProducts.slice(start, start + 5);
-      setProducts(prevProducts => [...prevProducts, ...newProducts]);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
+    const start = (page - 1) * 5;
+    const newProducts = mockProducts.slice(start, start + 5);
+    setProducts(prevProducts => [...prevProducts, ...newProducts]);
     setLoading(false);
   };
 
@@ -50,7 +45,11 @@ const ProductList: React.FC = () => {
   return (
     <div className={styles.productList}>
       {products.map((product, index) => (
-        <div key={product.id} className={styles.productItem} ref={products.length === index + 1 ? lastProductElementRef : null}>
+        <div
+          key={product.id}
+          className={styles.productItem}
+          ref={products.length === index + 1 ? lastProductElementRef : null}
+        >
           <Product id={product.id} name={product.name} image={product.image} price={product.price} />
         </div>
       ))}
