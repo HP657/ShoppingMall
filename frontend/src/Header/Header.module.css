@@ -16,7 +16,7 @@
   display: flex;
 }
 
-button {
+.link_button {
   margin: 0 5px;
   padding: 10px 20px;
   background-color: white;
@@ -24,8 +24,12 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-button:hover {
+.link_button:hover {
   background-color: #ddd;
 }
