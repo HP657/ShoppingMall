@@ -17,12 +17,14 @@ function LogInForm() {
                 <input 
                     type="text" 
                     name="LoginEmail" 
+                    placeholder="이메일"
                     value={loginEmail} 
                     onChange={(e) => setLoginEmail(e.target.value)} 
                 /><br />
                 <input 
                     type="password" 
                     name="LoginPw" 
+                    placeholder="비밀번호"
                     value={loginPw} 
                     onChange={(e) => setLoginPw(e.target.value)} 
                 /><br />
