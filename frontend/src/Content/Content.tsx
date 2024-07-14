@@ -5,6 +5,7 @@ import ProductList from '../Product/ProductList';
 import ProductDetail from '../Product/ProductDetail';
 import LogInForm from '../LogInForm/LogInForm';
 import SignUpForm from '../SignUpForm/SignupForm';
+import CreateProductPage from '../CreateProduct/CreateProductPage';
 
 const Content: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Content: React.FC = () => {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path='/login' element={<LogInForm />} />
         <Route path='/signup' element={<SignUpForm />} />
+        <Route path='/create/product' element={<CreateProductPage />} />
       </Routes>
     </div>
   );
