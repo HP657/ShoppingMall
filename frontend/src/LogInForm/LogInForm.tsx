@@ -8,29 +8,40 @@ function LogInForm() {
     const handleLogin = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log({ loginEmail, loginPw });
+        //axios.post()
     };
 
     return (
-        <>
-            <h1>로그인</h1>
+        <div className={styles.container}>
+            <h1 className={styles.heading}>로그인</h1>
             <form onSubmit={handleLogin}>
+                <div className={styles["form-group"]}>
+                    <input 
+                        type="text" 
+                        name="LoginEmail" 
+                        placeholder="이메일"
+                        className={styles["input-field"]}
+                        value={loginEmail} 
+                        onChange={(e) => setLoginEmail(e.target.value)} 
+                    />
+                </div>
+                <div className={styles["form-group"]}>
+                    <input 
+                        type="password" 
+                        name="LoginPw" 
+                        placeholder="비밀번호"
+                        className={styles["input-field"]}
+                        value={loginPw} 
+                        onChange={(e) => setLoginPw(e.target.value)} 
+                    />
+                </div>
                 <input 
-                    type="text" 
-                    name="LoginEmail" 
-                    placeholder="이메일"
-                    value={loginEmail} 
-                    onChange={(e) => setLoginEmail(e.target.value)} 
-                /><br />
-                <input 
-                    type="password" 
-                    name="LoginPw" 
-                    placeholder="비밀번호"
-                    value={loginPw} 
-                    onChange={(e) => setLoginPw(e.target.value)} 
-                /><br />
-                <input type="submit" value="로그인하기" />
+                    type="submit" 
+                    value="로그인하기" 
+                    className={styles["submit-button"]}
+                />
             </form>
-        </>
+        </div>
     );
 }
 
