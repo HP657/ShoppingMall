@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from './CreateProductPage.module.css';
 
 interface ProductData {
   productImg: File | null;
   productName: string;
   productDescription: string;
+  productPrice: string;
 }
 
 function CreateProductPage() {
@@ -12,6 +14,7 @@ function CreateProductPage() {
     productImg: null,
     productName: '',
     productDescription: '',
+    productPrice: '',
   });
   const [previewImg, setPreviewImg] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -39,6 +42,15 @@ function CreateProductPage() {
     }
   };
 
+  const handlePriceChange = (value: string) => {
+    // 숫자 외의 문자를 제거하여 숫자만 남기도록 처리
+    const sanitizedValue = value.replace(/[^0-9]/g, '');
+    setProductData((prevData) => ({
+      ...prevData,
+      productPrice: sanitizedValue,
+    }));
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
@@ -51,9 +63,11 @@ function CreateProductPage() {
       }
       formData.append('productName', productData.productName);
       formData.append('productDescription', productData.productDescription);
+      formData.append('productPrice', productData.productPrice);
 
       console.log('상품 등록 요청:', productData);
-
+      //axios.post()
+      //alert
       navigate('/');
     } catch (error) {
       setError('상품 등록에 실패했습니다. 다시 시도해주세요.');
@@ -63,27 +77,28 @@ function CreateProductPage() {
   };
 
   return (
-    <div className="auth-container">
+    <div className={styles["auth-container"]}>
       <form onSubmit={handleSubmit}>
         <h2>상품 등록하기</h2>
-        {error && <p className="error-message">{error}</p>}
-        <div className="product-preview-container">
+        {error && <p className={styles["error-message"]}>{error}</p>}
+        <div className={styles["product-preview-container"]}>
           <img
-            src={previewImg || ''}
+            src={previewImg || process.env.PUBLIC_URL + '/logo192.png'}
             alt="Product Preview"
-            className="product-preview"
+            className={styles["product-preview"]}
             onClick={() => fileInputRef.current?.click()}
           />
           <input
             type="file"
             ref={fileInputRef}
             onChange={handleFileInputChange}
-            style={{ display: 'none' }}
+            className={styles['file-input']}
             accept=".jpeg, .jpg, .png"
             required={!productData.productImg}
+            style={{ display: 'none' }}
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
           <label htmlFor="productName">제품명</label>
           <input
             type="text"
@@ -95,10 +110,22 @@ function CreateProductPage() {
                 productName: e.target.value,
               }))
             }
+            placeholder='제품명'
             required
           />
         </div>
-        <div className="input-group">
+        <div className={styles["input-group"]}>
+          <label htmlFor="productPrice">가격</label>
+          <input
+            type="text"
+            id="productPrice"
+            value={productData.productPrice}
+            onChange={(e) => handlePriceChange(e.target.value)}
+            placeholder="가격/원"
+            required
+          />
+        </div>
+        <div className={styles["input-group"]}>
           <label htmlFor="productDescription">상세 설명</label>
           <textarea
             id="productDescription"
@@ -109,6 +136,7 @@ function CreateProductPage() {
                 productDescription: e.target.value,
               }))
             }
+            placeholder='상세 설명'
             required
           ></textarea>
         </div>
