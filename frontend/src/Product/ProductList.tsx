@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Product from './Product';
 import styles from './ProductList.module.css';
 import mockProducts from './test/mockProducts';
+import CreateProduct from '../CreateProduct/CreateProduct';
 
 interface ProductData {
   id: number;
@@ -43,18 +44,21 @@ const ProductList: React.FC = () => {
   }, [page]);
 
   return (
-    <div className={styles.productList}>
-      {products.map((product, index) => (
-        <div
-          key={product.id}
-          className={styles.productItem}
-          ref={products.length === index + 1 ? lastProductElementRef : null}
-        >
-          <Product id={product.id} name={product.name} image={product.image} price={product.price} />
-        </div>
-      ))}
-      {loading && <p>Loading...</p>}
-    </div>
+    <>
+      <CreateProduct />
+      <div className={styles.productList}>
+        {products.map((product, index) => (
+          <div
+            key={product.id}
+            className={styles.productItem}
+            ref={products.length === index + 1 ? lastProductElementRef : null}
+          >
+            <Product id={product.id} name={product.name} image={product.image} price={product.price} />
+          </div>
+        ))}
+        {loading && <p>Loading...</p>}
+      </div>
+    </>
   );
 };
 
