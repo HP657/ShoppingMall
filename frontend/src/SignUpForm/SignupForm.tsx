@@ -13,40 +13,56 @@ function SignUpForm() {
     };
 
     return (
-        <>
+        <div className={styles.container}>
             <h1>회원가입</h1>
             <form onSubmit={handleSignUp}>
+                <div className={styles["form-group"]}>
+                    <input 
+                        type="text" 
+                        name="UserName" 
+                        placeholder="이름" 
+                        className={styles["input-field"]}
+                        value={userName} 
+                        onChange={(e) => setUserName(e.target.value)} 
+                    />
+                </div>
+                <div className={styles["form-group"]}>
+                    <input 
+                        type="email" 
+                        name="Email" 
+                        placeholder="이메일" 
+                        className={styles["input-field"]}
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                    />
+                </div>
+                <div className={styles["form-group"]}>
+                    <input 
+                        type="password" 
+                        name="Password" 
+                        placeholder="비밀번호" 
+                        className={styles["input-field"]}
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                    />
+                </div>
+                <div className={styles["form-group"]}>
+                    <input 
+                        type="password" 
+                        name="PasswordConfirm" 
+                        placeholder="비밀번호 확인" 
+                        className={styles["input-field"]}
+                        value={passwordConfirm} 
+                        onChange={(e) => setPasswordConfirm(e.target.value)} 
+                    />
+                </div>
                 <input 
-                    type="text" 
-                    name="UserName" 
-                    placeholder="이름" 
-                    value={userName} 
-                    onChange={(e) => setUserName(e.target.value)} 
-                /><br />
-                <input 
-                    type="email" 
-                    name="Email" 
-                    placeholder="이메일" 
-                    value={email} 
-                    onChange={(e) => setEmail(e.target.value)} 
-                /><br />
-                <input 
-                    type="password" 
-                    name="Password" 
-                    placeholder="비밀번호" 
-                    value={password} 
-                    onChange={(e) => setPassword(e.target.value)} 
-                /><br />
-                <input 
-                    type="password" 
-                    name="PasswordConfirm" 
-                    placeholder="비밀번호 확인" 
-                    value={passwordConfirm} 
-                    onChange={(e) => setPasswordConfirm(e.target.value)} 
-                /><br />
-                <input type="submit" value="회원가입" />
+                    type="submit" 
+                    value="회원가입" 
+                    className={styles["submit-button"]}
+                />
             </form>
-        </>
+        </div>
     );
 }
 
